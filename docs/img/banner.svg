@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" width="1200" height="360" role="img" aria-labelledby="t d">
+  <title id="t">Rede de Confiança</title>
+  <desc id="d">Lojistas verificados reportam fraude; qualquer um consulta um score explicável. Sem CPF, só hash.</desc>
+  <defs>
+    <linearGradient id="fundo" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f2a43"/>
+      <stop offset="1" stop-color="#143d5c"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="360" rx="20" fill="url(#fundo)"/>
+  <!-- rede: nós ligados; o nó central é o score -->
+  <g stroke="#7fd1c7" stroke-width="2" stroke-opacity="0.55" fill="none">
+    <line x1="960" y1="180" x2="1060" y2="90"/>
+    <line x1="960" y1="180" x2="1090" y2="190"/>
+    <line x1="960" y1="180" x2="1040" y2="285"/>
+    <line x1="960" y1="180" x2="860" y2="95"/>
+    <line x1="960" y1="180" x2="850" y2="270"/>
+    <line x1="1060" y1="90" x2="1090" y2="190"/>
+    <line x1="860" y1="95" x2="1060" y2="90"/>
+    <line x1="850" y1="270" x2="1040" y2="285"/>
+  </g>
+  <g fill="#7fd1c7">
+    <circle cx="1060" cy="90" r="9"/>
+    <circle cx="1090" cy="190" r="9"/>
+    <circle cx="1040" cy="285" r="9"/>
+    <circle cx="860" cy="95" r="9"/>
+    <circle cx="850" cy="270" r="9"/>
+  </g>
+  <circle cx="960" cy="180" r="46" fill="#ffd166"/>
+  <text x="960" y="192" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="34" font-weight="700" fill="#0f2a43">0-100</text>
+  <text x="70" y="140" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="64" font-weight="800" fill="#ffffff">Rede de Confiança</text>
+  <text x="70" y="196" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="26" fill="#d6eaf5">Lojistas verificados reportam fraude.</text>
+  <text x="70" y="232" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="26" fill="#d6eaf5">Qualquer um consulta um score que se explica.</text>
+  <text x="70" y="298" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#ffd166">sem CPF  ·  só hash  ·  código aberto  ·  Genesis Innovation</text>
+</svg>

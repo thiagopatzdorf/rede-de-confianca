@@ -1,0 +1,35 @@
+name = "rede-de-confianca"
+main = "src/worker.js"
+compatibility_date = "2026-10-01"
+# hashIndicador (src/normalizar.js) usa node:crypto, que o Worker só expõe com
+# esta flag; sem ela o deploy falha ao importar o módulo.
+compatibility_flags = ["nodejs_compat"]
+
+# Expiração diária (src/expiracao.js): relatos com mais de 24 meses,
+# contestações decididas há mais de 24 meses, contadores de `limites` vencidos e
+# dados pessoais de solicitações e de relatores desativados (90 dias).
+[triggers]
+crons = ["17 3 * * *"]
+
+# Troque pelo id do seu banco: `wrangler d1 create rede-de-confianca`.
+# Aplicar o esquema, em ordem (001 e 002): `wrangler d1 migrations apply rede-de-confianca --remote`.
+[[d1_databases]]
+binding = "DB"
+database_name = "rede-de-confianca"
+database_id = "00000000-0000-0000-0000-000000000000"
+migrations_dir = "schema"
+
+# Segredos ADMIN_TOKEN (moderação) e PEPPER (HMAC dos hashes e das chaves de
+# limite): nunca vão neste arquivo. Defina com
+#   wrangler secret put ADMIN_TOKEN
+#   wrangler secret put PEPPER
+# e, em desenvolvimento local, num `.dev.vars` fora do Git. Os dois exigem 32 ou
+# mais caracteres; sem PEPPER válido o Worker responde 500 `configuracao` em
+# toda rota. Trocar o PEPPER invalida todos os hashes gravados: guarde-o num cofre.
+
+# Porquê desligado: o log de invocação guarda URL completa, IP e corpo de
+# erro. Desde a v1.1 o valor cru não vai mais na URL (a consulta é POST), mas
+# o corpo do POST ainda o carrega e o IP de quem consulta é dado pessoal;
+# ligar isso gravaria o que o desenho promete nunca gravar.
+[observability]
+enabled = false
