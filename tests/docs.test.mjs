@@ -11,6 +11,7 @@ const docs = [
   "README.en.md",
   "CONTRIBUTING.md",
   "SECURITY.md",
+  "mcp/README.md",
   ".github/pull_request_template.md",
   // só .md: docs/img/ é pasta de imagens, não documento de texto
   ...readdirSync(new URL("docs/", raiz)).filter((f) => f.endsWith(".md")).map((f) => `docs/${f}`),

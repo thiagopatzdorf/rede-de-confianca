@@ -286,5 +286,6 @@ Estado de solicitação: `pendente`, `aprovada`, `recusada`.
 
 - `src/normalizar.js`, `src/pontuacao.js`, `tests/normalizar.test.mjs`, `tests/pontuacao.test.mjs` — núcleo
 - `src/worker.js`, `src/limites.js`, `src/expiracao.js`, `src/segredos.js`, `src/dados-pessoais.js`, `schema/*.sql`, `wrangler.toml`, `tests/api.test.mjs`, `tests/redteam.test.mjs`, `tests/dados-pessoais.test.mjs`, `tests/_ambiente.mjs` (D1 falso compartilhado, não é teste) — API
+- `mcp/server.mjs`, `mcp/README.md`, `tests/mcp.test.mjs` — servidor MCP (cliente da API; reaproveita `src/normalizar.js` e `src/dados-pessoais.js`, não duplica regra)
 - `README.md`, `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, `SECURITY.md`, `docs/PRIVACIDADE.md`, `docs/MODERACAO.md`, `docs/GOVERNANCA.md` — docs
 - Teste: `node --test` (Node 22, sem dependências npm). Não use `node --test tests/`: no Node 22 a pasta é tratada como módulo e falha.
