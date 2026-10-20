@@ -193,6 +193,15 @@ curl -X POST https://SUA-INSTANCIA/v1/relatores/solicitacoes \
 # 201 { "id": "..." }  (um moderador avalia; limite de 3 pedidos por hora por balde de rede)
 ```
 
+## Use com o seu agente (MCP)
+
+Quer perguntar ao seu assistente de IA "esse pedido é suspeito?" em vez de montar
+`curl`? O repositório traz um servidor [MCP](https://modelcontextprotocol.io)
+sem dependências (`mcp/server.mjs`) com ferramentas para consultar, reportar,
+contestar e pedir chave. O valor que você consulta é transformado em hash na sua
+máquina e só o hash sai; reportar exige chave **e** a sua confirmação. Instalação
+para Claude Code, Claude Desktop e outros clientes em [mcp/README.md](mcp/README.md).
+
 ## O que NÃO é
 
 - **Não é lista de culpados.** Indicador não é pessoa. Um IP pode ser de uma rede
@@ -267,7 +276,8 @@ com testes. O que **ainda falta**, sem maquiagem:
 
 - [ ] Ligar o CI: o workflow está pronto em `.github/ci-pendente/ci.yml`; falta movê-lo para `.github/workflows/` (o token que publicou o repo não tinha o escopo `workflow`)
 - [ ] Instância de referência no ar, operada pela Genesis
-- [ ] SDK de cliente (normalizar, hashear, consultar e reportar sem montar curl)
+- [ ] SDK de cliente (normalizar, hashear, consultar e reportar sem montar curl); o servidor MCP (`mcp/`) já cobre o caso do agente de IA
+- [ ] MCP: servidor remoto HTTP (com ferramentas só de hash), hash em `POST /v1/relatos` e pacote npm (ver [mcp/README.md](mcp/README.md#roadmap-do-mcp))
 - [ ] Plugin para plataformas de loja (consulta no checkout)
 - [ ] Rota para apagar `contato` e `motivo` de uma contestação a pedido (hoje é manual, direto no banco)
 - [ ] Corrida no dedupe de 30 dias: a checagem de relato repetido e a gravação não são atômicas
@@ -335,7 +345,7 @@ recusar.
 
 ## Licença
 
-- **Código** (`src/`, `tests/`, `schema/`, `wrangler.toml`): [Apache License 2.0](LICENSE).
+- **Código** (`src/`, `mcp/`, `tests/`, `schema/`, `wrangler.toml`): [Apache License 2.0](LICENSE).
 - **Documentação** (`docs/` e este README): [CC0 1.0](LICENSE-DOCS), domínio público.
   As regras de uma rede de confiança são um bem comum; copie, adapte e rode a sua.
 

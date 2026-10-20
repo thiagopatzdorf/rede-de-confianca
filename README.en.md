@@ -63,6 +63,10 @@ There is **no public reference instance yet**; run your own (Cloudflare Workers 
 Node 22, no npm dependencies) by following "Rodar local" in the [README](README.md#rodar-local),
 and run the tests with `node --test`.
 
+## Use it with your AI agent (MCP)
+
+`mcp/server.mjs` is a zero-dependency [MCP](https://modelcontextprotocol.io) server so your assistant can query, report and contest for you; the queried value is hashed locally and only the hash leaves your machine. Setup (in Portuguese): [mcp/README.md](mcp/README.md). Still open: remote HTTP server, hash-only reporting, npm package.
+
 ## What it is not
 
 Not a blocklist of guilty people, never proof, never an automatic block. An
@@ -88,6 +92,6 @@ reports: [SECURITY.md](SECURITY.md).
 
 ## License
 
-Code (`src/`, `tests/`, `schema/`, `wrangler.toml`): [Apache-2.0](LICENSE).
+Code (`src/`, `mcp/`, `tests/`, `schema/`, `wrangler.toml`): [Apache-2.0](LICENSE).
 Documentation (`docs/`, READMEs): [CC0 1.0](LICENSE-DOCS).
 Copyright 2026 Genesis Innovation.
